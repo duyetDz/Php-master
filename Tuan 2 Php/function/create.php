@@ -46,7 +46,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     $add_member  = "INSERT INTO `students` (`id`, `name`, `main_major`, `class_id`, `created_at`) VALUES (NULL, '$name', '$main_major', '$class_id', current_timestamp())";
 
-    if (!isset($_POST['btn_submit'])) {
+    if (!isset($_POST['create'])) {
         if (empty($error)) {
             if ($conn->query($add_member) === TRUE) {
                 $_SESSION['status'] = "<div class='alert alert-success alert-dismissible fade show' role='alert'>
@@ -82,6 +82,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <body>
     <div class="container my-5">
         <h1>Add member </h1>
+    </div>
         <form action="" method="post">
 
             <div class="row mb-3">
@@ -115,9 +116,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         } ?>
                     </select>
                 </div>
-
-
-
             </div>
 
             <div class="row mb-3">
